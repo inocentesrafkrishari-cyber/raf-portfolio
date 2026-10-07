@@ -1,0 +1,9 @@
+/* Shared bar shown on top of every sample build */
+.demo-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px clamp(16px,4vw,32px);background:#1D1A17;color:#F7F4EF;font:500 14px/1.4 Inter,system-ui,sans-serif}
+.demo-bar a{color:#F7F4EF;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);transition:background .2s}
+.demo-bar a:hover{background:rgba(255,255,255,.2)}
+.demo-bar b{color:#F0A27F;font-weight:600}
+.demo-bar .demo-note{opacity:.8}
+@media (max-width:600px){.demo-bar .demo-note{display:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,.8,.24,1),transform .8s cubic-bezier(.22,.8,.24,1)}
+.reveal.in{opacity:1;transform:none}

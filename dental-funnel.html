@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrightCare Dental | Booking Funnel (Sample Build)</title>
+<meta name="description" content="Sample dental clinic booking funnel with automatic reminders. Built by Raf Inocentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--bg:#F4F9FC;--navy:#0E3A52;--blue:#1F8FBF;--blue-2:#E3F2F9;--ink:#12303F;--ink-2:#4C6573;--line:#DCE9F0;--ok:#22A06B;--ok-2:#E3F6EC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+h1,h2,h3{font-family:"Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15;color:var(--navy)}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{display:flex;gap:10px;align-items:center;font-family:"Plus Jakarta Sans";font-weight:800;font-size:20px;color:var(--navy)}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:17px}
+.call{font-weight:600;color:var(--blue)}
+.hero{display:grid;grid-template-columns:1fr 440px;gap:56px;align-items:start;padding:40px 0 90px}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--ink-2)}
+.badge b{color:var(--ok)}
+h1{font-size:clamp(38px,5vw,58px);margin:20px 0 18px}
+h1 em{font-style:normal;color:var(--blue)}
+.sub{font-size:19px;color:var(--ink-2);max-width:48ch;margin-bottom:28px}
+.perks{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+.perks li{display:flex;gap:12px;align-items:center}
+.perks li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--ok-2);color:var(--ok);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+.trust{display:flex;gap:28px;flex-wrap:wrap;color:var(--ink-2);font-size:15px}
+.trust b{display:block;font-family:"Plus Jakarta Sans";font-size:26px;color:var(--navy)}
+.card{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(14,58,82,.10);padding:28px;position:sticky;top:70px}
+.card h3{font-size:21px;margin-bottom:4px}
+.card .s{font-size:14px;color:var(--ink-2);margin-bottom:18px}
+.progress{display:flex;gap:6px;margin-bottom:22px}
+.progress span{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .4s}
+.progress span.on{background:var(--blue)}
+.lbl{font-size:14px;font-weight:600;color:var(--ink-2);margin:14px 0 8px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.opts--days{grid-template-columns:repeat(5,1fr)}
+.opts--times{grid-template-columns:repeat(3,1fr)}
+.opt{padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);font-size:15px;font-weight:500;text-align:center;transition:all .2s}
+.opt small{display:block;font-size:12px;color:var(--ink-2)}
+.opt:hover{border-color:var(--blue)}
+.opt.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.opt.on small{color:#D4ECF7}
+.opt:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.next{width:100%;height:52px;border-radius:14px;background:var(--navy);color:#fff;font-weight:600;margin-top:20px;transition:background .2s,opacity .2s}
+.next:hover{background:var(--blue)}
+.next:disabled{opacity:.4;cursor:not-allowed}
+.field{display:grid;gap:6px;margin-top:12px}
+.field label{font-size:14px;font-weight:600;color:var(--ink-2)}
+.field input{font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,143,191,.15)}
+.back{font-size:14px;color:var(--ink-2);margin-top:12px;text-decoration:underline}
+.step{display:none;animation:in .45s cubic-bezier(.22,.8,.24,1)}
+.step.on{display:block}
+@keyframes in{from{opacity:0;transform:translateX(16px)}}
+.done{text-align:center}
+.done .ic{width:64px;height:64px;border-radius:50%;background:var(--ok-2);color:var(--ok);display:grid;place-items:center;font-size:30px;margin:6px auto 12px;animation:pop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(0)}}
+.done p{color:var(--ink-2);font-size:15px}
+.timeline{text-align:left;margin-top:20px;border-left:2px solid var(--line);padding-left:18px;display:grid;gap:14px}
+.ev{position:relative;opacity:.35;transition:opacity .5s}
+.ev.on{opacity:1}
+.ev::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--line);transition:background .5s}
+.ev.on::before{background:var(--ok)}
+.ev b{display:block;font-size:14px;color:var(--navy)}
+.ev span{font-size:13px;color:var(--ink-2)}
+.sms{margin-top:6px;background:var(--blue-2);border-radius:12px 12px 12px 4px;padding:8px 12px;font-size:13px;color:var(--navy)}
+section{padding:80px 0;background:#fff}
+.head{text-align:center;max-width:620px;margin:0 auto 46px}
+.head h2{font-size:clamp(30px,4vw,42px);margin-bottom:10px}
+.head p{color:var(--ink-2)}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc{padding:24px;border-radius:18px;border:1px solid var(--line);background:var(--bg);transition:transform .4s,box-shadow .4s}
+.svc:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(14,58,82,.08)}
+.svc .e{font-size:28px}
+.svc h3{font-size:18px;margin:10px 0 4px}
+.svc p{font-size:14.5px;color:var(--ink-2)}
+.how{background:var(--navy);color:#fff}
+.how h2,.how h3{color:#fff}
+.how .head p{color:#B9D3E0}
+.auto{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.auto div{padding:22px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.auto b{font-family:"Plus Jakarta Sans";font-size:13px;color:#7CCBEA;letter-spacing:.06em}
+.auto h3{font-size:18px;margin:6px 0}
+.auto p{font-size:14.5px;color:#B9D3E0}
+footer{padding:34px 0;font-size:14px;color:var(--ink-2);text-align:center}
+@media (max-width:960px){.hero{grid-template-columns:1fr}.card{position:relative;top:0}.services,.auto{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.services,.auto{grid-template-columns:1fr}.opts--days{grid-template-columns:repeat(3,1fr)}.call{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar"><a href="index.html#work">&larr; Back to portfolio</a><span class="demo-note"><b>Sample build</b> &middot; fictional clinic, real funnel setup by Raf Inocentes</span></div>
+<div class="wrap">
+  <header><span class="logo"><i>&#10022;</i>BrightCare Dental</span><a class="call" href="#book">Book online &rarr;</a></header>
+  <div class="hero">
+    <div class="reveal">
+      <span class="badge"><b>&#9679;</b> New patients welcome this week</span>
+      <h1>Book your dental cleaning in <em>60 seconds.</em></h1>
+      <p class="sub">Pick a time that works for you, and we'll send reminders so you never miss your appointment.</p>
+      <ul class="perks"><li>Gentle cleaning and check-up in one visit</li><li>Evening and Saturday slots available</li><li>Text reminders 24 hours and 2 hours before</li></ul>
+      <div class="trust"><span><b>15 min</b>average wait</span><span><b>6 days</b>open a week</span><span><b>Free</b>first consultation</span></div>
+    </div>
+    <div class="card reveal" id="book">
+      <div class="progress"><span class="on"></span><span></span><span></span></div>
+      <div class="step on" data-s="1">
+        <h3>What do you need?</h3><p class="s">Step 1 of 3</p>
+        <div class="opts" id="svc"><button class="opt">Cleaning<small>45 min</small></button><button class="opt">Check-up<small>30 min</small></button><button class="opt">Whitening<small>60 min</small></button><button class="opt">Tooth pain<small>Priority</small></button></div>
+        <button class="next" data-go="2" disabled>Choose a time &rarr;</button>
+      </div>
+      <div class="step" data-s="2">
+        <h3>Pick a day and time</h3><p class="s">Step 2 of 3</p>
+        <div class="lbl">Day</div><div class="opts opts--days" id="days"></div>
+        <div class="lbl">Time</div><div class="opts opts--times" id="times"></div>
+        <button class="next" data-go="3" disabled>Continue &rarr;</button>
+        <button class="back" data-go="1">Back</button>
+      </div>
+      <div class="step" data-s="3">
+        <h3>Your details</h3><p class="s">Step 3 of 3</p>
+        <div class="field"><label for="n">Full name</label><input id="n" autocomplete="name"></div>
+        <div class="field"><label for="p">Mobile number</label><input id="p" inputmode="tel" autocomplete="tel"></div>
+        <button class="next" id="confirm">Confirm booking</button>
+        <button class="back" data-go="2">Back</button>
+      </div>
+      <div class="step done" data-s="4">
+        <div class="ic">&#10003;</div>
+        <h3>You're booked!</h3>
+        <p id="summary"></p>
+        <div class="timeline" id="tl">
+          <div class="ev"><b>Instant</b><span>Confirmation SMS sent</span><div class="sms" id="sms1"></div></div>
+          <div class="ev"><b>Saved to CRM</b><span>Contact tagged "new patient", added to calendar</span></div>
+          <div class="ev"><b>24 hours before</b><span>Reminder SMS and email</span></div>
+          <div class="ev"><b>2 hours before</b><span>Final SMS with clinic map link</span></div>
+          <div class="ev"><b>After the visit</b><span>Thank-you message and Google review request</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal"><h2>Services</h2><p>Simple, friendly dental care for the whole family.</p></div>
+    <div class="services">
+      <div class="svc reveal"><div class="e">&#129701;</div><h3>Cleaning</h3><p>Plaque and tartar removal with a polish.</p></div>
+      <div class="svc reveal"><div class="e">&#128269;</div><h3>Check-up</h3><p>Full exam so small problems stay small.</p></div>
+      <div class="svc reveal"><div class="e">&#10024;</div><h3>Whitening</h3><p>Safe in-clinic whitening in one visit.</p></div>
+      <div class="svc reveal"><div class="e">&#9889;</div><h3>Emergency</h3><p>Same-day slots for tooth pain.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="head reveal"><h2>What happens behind the scenes</h2><p>The automation I set up in GoHighLevel for this funnel.</p></div>
+    <div class="auto">
+      <div class="reveal"><b>TRIGGER</b><h3>Appointment booked</h3><p>The calendar booking starts the workflow and creates the contact.</p></div>
+      <div class="reveal"><b>ACTION</b><h3>Confirm and tag</h3><p>Instant SMS confirmation, tag by service, and the team gets notified.</p></div>
+      <div class="reveal"><b>WAIT</b><h3>Smart reminders</h3><p>SMS and email at 24h and 2h before, with a reply-to-reschedule option.</p></div>
+      <div class="reveal"><b>FOLLOW-UP</b><h3>Reviews and rebooking</h3><p>Review request after the visit, then a 6-month cleaning reminder.</p></div>
+    </div>
+  </div>
+</section>
+<footer>Sample build by <a href="index.html" style="color:var(--blue);font-weight:600">Raf Inocentes</a>. BrightCare Dental is a fictional clinic used to show the setup.</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let pick={};
+const go=n=>{$$('.step').forEach(s=>s.classList.toggle('on',s.dataset.s==n));$$('.progress span').forEach((p,i)=>p.classList.toggle('on',i<Math.min(n,3)))};
+$$('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+const single=(wrap,key,after)=>wrap.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||b.disabled)return;$$('#'+wrap.id+' .opt').forEach(x=>x.classList.toggle('on',x===b));pick[key]=b.firstChild.textContent.trim();after&&after()});
+single($('#svc'),'svc',()=>$('[data-s="1"] .next').disabled=false);
+const days=$('#days'),times=$('#times'),d=new Date(),names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let c=0;for(let i=1;c<5;i++){const x=new Date(d);x.setDate(d.getDate()+i);if(x.getDay()===0)continue;days.innerHTML+=`<button class="opt">${names[x.getDay()]}<small>${x.toLocaleDateString('en-US',{month:'short',day:'numeric'})}</small></button>`;c++}
+const slots=['9:00 AM','10:30 AM','1:00 PM','2:30 PM','4:00 PM','6:00 PM'];
+const check=()=>$('[data-s="2"] .next').disabled=!(pick.day&&pick.time);
+single(days,'day',()=>{pick.time=null;times.innerHTML=slots.map(t=>`<button class="opt" ${Math.random()<.3?'disabled':''}>${t}</button>`).join('');check()});
+single(times,'time',check);
+times.innerHTML='<p style="grid-column:1/-1;font-size:14px;color:var(--ink-2)">Pick a day first</p>';
+$('#confirm').onclick=()=>{
+  const n=$('#n').value.trim(),p=$('#p').value.trim();if(!n){$('#n').focus();return}if(!p){$('#p').focus();return}
+  const dEl=$$('#days .opt.on')[0],day=dEl.firstChild.textContent.trim()+', '+dEl.querySelector('small').textContent;
+  $('#summary').textContent=`${pick.svc} on ${day} at ${pick.time}. (Demo only, nothing was sent.)`;
+  $('#sms1').textContent=`Hi ${n.split(' ')[0]}! Your ${pick.svc.toLowerCase()} at BrightCare Dental is confirmed for ${day}, ${pick.time}. Reply C to confirm or R to reschedule.`;
+  go(4);$$('#tl .ev').forEach((e,i)=>setTimeout(()=>e.classList.add('on'),400+i*700));
+};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>

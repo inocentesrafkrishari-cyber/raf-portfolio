@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wood Smile Furniture | Handmade Furniture (Website Concept)</title>
+<meta name="description" content="Website concept for Wood Smile Furniture, a family woodshop in the Philippines. Built by Raf Inocentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--bg:#FBF7F1;--wood:#2B1E16;--wood-2:#4A3426;--oak:#C8925A;--oak-2:#E6C69A;--ink:#2B1E16;--ink-2:#6B5848;--line:#EADFD1;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;transition:transform .3s,background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn--oak{background:var(--oak);color:var(--wood)}
+.btn--oak:hover{background:var(--oak-2)}
+.btn--line{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.btn--line:hover{background:rgba(255,255,255,.08)}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-family:Fraunces,serif;font-size:22px;font-weight:600;color:#F4E9DC;display:flex;align-items:center;gap:10px}
+.logo span{width:34px;height:34px;border-radius:50%;background:var(--oak);display:grid;place-items:center;color:var(--wood);font-size:16px}
+nav{display:flex;gap:26px;font-size:15px;color:#E8D9C6}
+nav a:hover{color:#fff}
+.hero{background:var(--wood);color:#F4E9DC;padding-bottom:90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(95deg,rgba(255,255,255,.015) 0 2px,transparent 2px 14px);pointer-events:none}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:50px}
+.kicker{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--oak)}
+.hero h1{font-size:clamp(40px,5.4vw,66px);margin:16px 0 20px;color:#fff}
+.hero p{color:#D9C8B4;max-width:46ch;margin-bottom:32px;font-size:18px}
+.hero__ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero__art{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(150deg,#8B5E3C,#C8925A 55%,#E6C69A);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.hero__art svg{position:absolute;inset:auto 0 0;width:100%;height:auto}
+.hero__badge{position:absolute;left:18px;bottom:40px;background:#fff;color:var(--ink);border-radius:16px;padding:14px 18px;box-shadow:0 20px 50px rgba(0,0,0,.25);font-size:14px;display:flex;gap:12px;align-items:center;animation:bob 6s ease-in-out infinite}
+.hero__badge b{font-family:Fraunces,serif;font-size:24px;color:var(--oak)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+section{padding:clamp(70px,10vw,110px) 0}
+.head{text-align:center;max-width:640px;margin:0 auto 50px}
+.head h2{font-size:clamp(32px,4vw,46px);margin:10px 0 12px}
+.head p{color:var(--ink-2)}
+.cats{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.cats button{font:inherit;font-size:15px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:all .2s}
+.cats button.on,.cats button:hover{background:var(--wood);border-color:var(--wood);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.item{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:transform .5s cubic-bezier(.22,.8,.24,1),box-shadow .5s}
+.item:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(43,30,22,.12)}
+.item.hide{display:none}
+.item__img{aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+.item__img svg{width:62%;transition:transform .7s cubic-bezier(.22,.8,.24,1)}
+.item:hover .item__img svg{transform:scale(1.06)}
+.item__body{padding:20px 22px 24px}
+.item h3{font-size:21px}
+.item p{color:var(--ink-2);font-size:15px;margin:4px 0 12px}
+.item .price{display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.item .price a{font-size:14px;color:var(--oak);font-weight:600}
+.why{background:#F3EBDF}
+.why__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why__card{background:#fff;border-radius:18px;padding:26px;border:1px solid var(--line)}
+.why__card .ic{width:46px;height:46px;border-radius:12px;background:#F3E3CF;display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.why__card h3{font-size:19px;margin-bottom:6px}
+.why__card p{font-size:15px;color:var(--ink-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.st{padding-top:16px;border-top:2px solid var(--oak)}
+.st::before{counter-increment:s;content:"0" counter(s);font-family:Fraunces,serif;font-size:34px;color:var(--oak)}
+.st h3{font-size:19px;margin:6px 0}
+.st p{font-size:15px;color:var(--ink-2)}
+.order{background:var(--wood);color:#F4E9DC}
+.order__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.order h2{font-size:clamp(32px,4vw,46px);color:#fff;margin:10px 0 14px}
+.order p{color:#D9C8B4}
+form{background:#fff;color:var(--ink);border-radius:22px;padding:clamp(24px,4vw,36px);display:grid;gap:16px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:14px;font-weight:600;color:var(--ink-2);display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--oak);box-shadow:0 0 0 4px rgba(200,146,90,.18)}
+textarea{min-height:100px;resize:vertical}
+form .btn{justify-content:center;background:var(--wood);color:#fff;border:0;cursor:pointer;font:inherit;font-weight:600}
+.ok{display:none;text-align:center;padding:30px 10px}
+.ok.show{display:block}
+.ok .big{font-size:46px}
+.ok h3{font-size:26px;margin:8px 0}
+.ok p{color:var(--ink-2)}
+.flow{margin-top:26px;display:grid;gap:10px}
+.flow div{display:flex;gap:12px;align-items:center;font-size:15px;color:#E8D9C6}
+.flow i{width:28px;height:28px;border-radius:8px;background:rgba(200,146,90,.18);display:grid;place-items:center;font-style:normal;color:var(--oak);font-size:13px;font-weight:700}
+footer{padding:40px 0;font-size:14px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.msgr{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;background:#0866FF;display:grid;place-items:center;box-shadow:0 12px 30px rgba(8,102,255,.4);z-index:50;transition:transform .3s}
+.msgr:hover{transform:scale(1.08)}
+.msgr svg{width:30px;height:30px}
+@media (max-width:900px){.hero__grid,.order__grid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.why__grid,.steps{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero__badge{left:12px}}
+@media (max-width:560px){.grid,.why__grid,.steps,.r2{grid-template-columns:1fr}.btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="demo-bar"><a href="index.html#work">&larr; Back to portfolio</a><span class="demo-note"><b>Website concept</b> for our family woodshop, built by Raf Inocentes</span></div>
+
+<div class="hero">
+  <div class="wrap">
+    <header><a href="#" class="logo"><span>&#9786;</span>Wood Smile</a><nav><a href="#shop">Furniture</a><a href="#why">Why us</a><a href="#how">How it works</a><a href="#order">Custom order</a></nav></header>
+    <div class="hero__grid">
+      <div class="reveal">
+        <span class="kicker">Handmade in the Philippines</span>
+        <h1>Furniture built by hand, made to last for years.</h1>
+        <p>Solid wood tables, beds, cabinets and shelves, made to order by our family woodshop. Choose a design or tell us exactly what you need.</p>
+        <div class="hero__ctas"><a href="#order" class="btn btn--oak">Request a custom piece &rarr;</a><a href="#shop" class="btn btn--line">Browse furniture</a></div>
+      </div>
+      <div class="hero__art reveal">
+        <svg viewBox="0 0 400 300" fill="none"><rect x="60" y="120" width="280" height="22" rx="4" fill="#5A3A24"/><rect x="80" y="142" width="16" height="120" fill="#3E2718"/><rect x="304" y="142" width="16" height="120" fill="#3E2718"/><rect x="120" y="70" width="40" height="50" rx="6" fill="#F4E9DC" opacity=".9"/><path d="M140 70v-20" stroke="#2B5D3A" stroke-width="4"/><circle cx="140" cy="44" r="16" fill="#3F7D52"/><rect x="230" y="96" width="70" height="24" rx="3" fill="#E6C69A"/><rect x="0" y="262" width="400" height="38" fill="#3E2718" opacity=".55"/></svg>
+        <div class="hero__badge"><b>100%</b><span>Solid wood,<br>made to order</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Our furniture</span><h2>Made for real homes</h2><p>Every piece can be adjusted to your size, wood and finish.</p></div>
+    <div class="cats reveal"><button class="on" data-c="all">All</button><button data-c="table">Tables</button><button data-c="bed">Beds</button><button data-c="storage">Storage</button></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Why choose us</span><h2>A small shop that cares about every piece</h2></div>
+    <div class="why__grid">
+      <div class="why__card reveal"><div class="ic">&#129717;</div><h3>Solid wood only</h3><p>No cheap fillers. Strong wood that holds up to daily family use.</p></div>
+      <div class="why__card reveal"><div class="ic">&#128207;</div><h3>Made to your size</h3><p>Send us your space measurements and we build to fit.</p></div>
+      <div class="why__card reveal"><div class="ic">&#129309;</div><h3>Family-run</h3><p>You talk directly to the people who build your furniture.</p></div>
+      <div class="why__card reveal"><div class="ic">&#128666;</div><h3>Delivery available</h3><p>We can deliver to your home. Ask us about your area.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">How it works</span><h2>From idea to your home in 4 steps</h2></div>
+    <div class="steps">
+      <div class="st reveal"><h3>Tell us your idea</h3><p>Send a photo, sketch or measurements using the form below.</p></div>
+      <div class="st reveal"><h3>Get a quote</h3><p>We reply with a price, wood options and a timeline.</p></div>
+      <div class="st reveal"><h3>We build it</h3><p>We send progress photos while your piece is being made.</p></div>
+      <div class="st reveal"><h3>Delivery</h3><p>Delivered and set up, ready to use.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap order__grid">
+    <div class="reveal">
+      <span class="kicker">Custom order</span>
+      <h2>Tell us what you want built.</h2>
+      <p>Fill in the form and we'll reply with a quote. Behind this form is an automation that does the follow-up for us:</p>
+      <div class="flow">
+        <div><i>1</i>Lead saved to the CRM with the furniture type</div>
+        <div><i>2</i>Instant SMS: "Thanks! We got your request"</div>
+        <div><i>3</i>Owner gets a notification with the details</div>
+        <div><i>4</i>Reminder sent if no reply after 24 hours</div>
+      </div>
+    </div>
+    <form id="orderForm" class="reveal" novalidate>
+      <div id="fields" style="display:grid;gap:16px">
+        <div class="r2"><label>Your name<input name="name" required></label><label>Mobile number<input name="phone" required inputmode="tel" placeholder="09XX XXX XXXX"></label></div>
+        <div class="r2"><label>Furniture type<select name="type"><option>Dining table</option><option>Bed frame</option><option>Cabinet</option><option>Shelf</option><option>Something else</option></select></label><label>Budget<select name="budget"><option>Under ₱10,000</option><option>₱10,000 to ₱25,000</option><option>₱25,000 to ₱50,000</option><option>Above ₱50,000</option></select></label></div>
+        <label>Size and details<textarea name="details" placeholder="Example: 6-seater table, 180 x 90 cm, dark finish"></textarea></label>
+        <button class="btn" type="submit">Send request &rarr;</button>
+      </div>
+      <div class="ok" id="ok"><div class="big">&#127881;</div><h3>Request received!</h3><p>This is a demo, so nothing was sent. On the live site, you'd get an SMS confirmation within seconds.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>&copy; Wood Smile Furniture. Website concept by Raf Inocentes.</span><a href="index.html#contact">Want a site like this? Let's talk &rarr;</a></div></footer>
+<a class="msgr" href="https://www.facebook.com/profile.php?id=100084196222669" target="_blank" rel="noopener" aria-label="Message us on Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.4 2 2 6.1 2 11.6c0 2.9 1.2 5.4 3.2 7.1V22l3-1.6c.9.2 1.8.4 2.8.4 5.6 0 10-4.1 10-9.6S17.6 2 12 2zm1 12.9-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8z"/></svg></a>
+
+<script>
+const items=[
+ {n:'Narra Dining Table',c:'table',d:'6-seater, solid narra, oil finish',p:'Made to order',bg:'#E9D3B8',s:'<rect x="10" y="40" width="180" height="14" rx="3" fill="#8B5E3C"/><rect x="22" y="54" width="10" height="70" fill="#5A3A24"/><rect x="168" y="54" width="10" height="70" fill="#5A3A24"/>'},
+ {n:'Platform Bed Frame',c:'bed',d:'Queen size, low profile, with headboard',p:'Made to order',bg:'#E3D6C6',s:'<rect x="20" y="30" width="30" height="80" rx="3" fill="#5A3A24"/><rect x="20" y="80" width="170" height="26" rx="4" fill="#8B5E3C"/><rect x="50" y="68" width="138" height="16" rx="6" fill="#F4E9DC"/>'},
+ {n:'Tall Storage Cabinet',c:'storage',d:'2 doors, 4 shelves, brass handles',p:'Made to order',bg:'#EFE0CC',s:'<rect x="55" y="10" width="90" height="120" rx="4" fill="#8B5E3C"/><line x1="100" y1="16" x2="100" y2="124" stroke="#5A3A24" stroke-width="3"/><circle cx="92" cy="70" r="3" fill="#E6C69A"/><circle cx="108" cy="70" r="3" fill="#E6C69A"/>'},
+ {n:'Coffee Table',c:'table',d:'Round, 80 cm, with lower shelf',p:'Made to order',bg:'#F1E4D2',s:'<ellipse cx="100" cy="60" rx="80" ry="14" fill="#8B5E3C"/><rect x="40" y="66" width="8" height="50" fill="#5A3A24"/><rect x="152" y="66" width="8" height="50" fill="#5A3A24"/><rect x="44" y="96" width="112" height="6" fill="#5A3A24"/>'},
+ {n:'Floating Wall Shelf',c:'storage',d:'Set of 3, any length',p:'Made to order',bg:'#E7D9C7',s:'<rect x="30" y="30" width="140" height="10" rx="2" fill="#8B5E3C"/><rect x="50" y="70" width="140" height="10" rx="2" fill="#8B5E3C"/><rect x="20" y="110" width="140" height="10" rx="2" fill="#8B5E3C"/><rect x="60" y="14" width="18" height="16" fill="#3F7D52"/>'},
+ {n:'Kids Bunk Bed',c:'bed',d:'Single over single, with safety rail',p:'Made to order',bg:'#EBDCC9',s:'<rect x="30" y="10" width="10" height="120" fill="#5A3A24"/><rect x="160" y="10" width="10" height="120" fill="#5A3A24"/><rect x="30" y="40" width="140" height="10" fill="#8B5E3C"/><rect x="30" y="100" width="140" height="10" fill="#8B5E3C"/><rect x="40" y="30" width="120" height="10" rx="4" fill="#F4E9DC"/><rect x="40" y="90" width="120" height="10" rx="4" fill="#F4E9DC"/>'}
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=items.map(i=>`<article class="item reveal" data-c="${i.c}"><div class="item__img" style="background:${i.bg}"><svg viewBox="0 0 200 140">${i.s}</svg></div><div class="item__body"><h3>${i.n}</h3><p>${i.d}</p><div class="price"><span>${i.p}</span><a href="#order">Get a quote &rarr;</a></div></div></article>`).join('');
+document.querySelectorAll('.cats button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cats button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.item').forEach(i=>i.classList.toggle('hide',b.dataset.c!=='all'&&i.dataset.c!==b.dataset.c))});
+const io=new IntersectionObserver(es=>es.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.getElementById('orderForm').addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(!f.name.value.trim()||!f.phone.value.trim()){(f.name.value.trim()?f.phone:f.name).focus();return}document.getElementById('fields').style.display='none';document.getElementById('ok').classList.add('show')});
+</script>
+</body>
+</html>

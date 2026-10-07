@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone Homes | Real Estate Lead Funnel (Sample Build)</title>
+<meta name="description" content="Sample real estate lead funnel with buyer qualification and instant follow-up. Built by Raf Inocentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--bg:#F5F6F4;--dark:#10202B;--teal:#2F7D7A;--teal-2:#E2F0EF;--gold:#C9A25B;--ink:#16252F;--ink-2:#55656F;--line:#E1E6E6;--hot:#D9480F;--warm:#E8A33D;--cold:#4C8BBF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+h1,h2,h3{font-family:"Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15}
+.hero{background:var(--dark);color:#fff;padding-bottom:110px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(47,125,122,.45),transparent 65%);right:-200px;top:-200px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0;position:relative;z-index:1}
+.logo{font-family:"Plus Jakarta Sans";font-weight:800;font-size:20px;display:flex;gap:10px;align-items:center}
+.logo i{width:32px;height:32px;border-radius:9px;background:var(--gold);color:var(--dark);display:grid;place-items:center;font-style:normal}
+.hero__in{position:relative;z-index:1;max-width:720px;padding-top:50px}
+.kick{color:var(--gold);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,5.5vw,62px);margin:14px 0 18px}
+.hero p{color:#B7C6CE;font-size:19px;max-width:52ch;margin-bottom:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;background:var(--gold);color:var(--dark);font-weight:700;transition:transform .3s,background .3s}
+.btn:hover{transform:translateY(-2px);background:#DDB876}
+.listings{margin-top:-70px;position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.home{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(16,32,43,.12);transition:transform .5s cubic-bezier(.22,.8,.24,1)}
+.home:hover{transform:translateY(-6px)}
+.home__img{aspect-ratio:16/10;position:relative;overflow:hidden}
+.home__img svg{width:100%;height:100%;transition:transform .8s cubic-bezier(.22,.8,.24,1)}
+.home:hover .home__img svg{transform:scale(1.06)}
+.home__tag{position:absolute;left:14px;top:14px;background:#fff;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.home__b{padding:20px 22px 22px}
+.home__p{font-family:"Plus Jakarta Sans";font-weight:800;font-size:22px}
+.home__b p{color:var(--ink-2);font-size:15px}
+.home__meta{display:flex;gap:16px;font-size:14px;color:var(--ink-2);margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+.home__b button{margin-top:14px;width:100%;height:46px;border-radius:12px;background:var(--teal-2);color:var(--teal);font-weight:600;transition:background .2s,color .2s}
+.home__b button:hover{background:var(--teal);color:#fff}
+section{padding:90px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 44px}
+.head h2{font-size:clamp(30px,4vw,44px);margin-bottom:10px}
+.head p{color:var(--ink-2)}
+.quiz{max-width:640px;margin:0 auto;background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(16,32,43,.08);padding:clamp(24px,4vw,40px);min-height:400px}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-bottom:26px}
+.bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .5s cubic-bezier(.22,.8,.24,1)}
+.q{display:none;animation:in .45s cubic-bezier(.22,.8,.24,1)}
+.q.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.q h3{font-size:24px;margin-bottom:18px}
+.ans{display:grid;gap:10px}
+.ans button{text-align:left;padding:16px 18px;border-radius:14px;border:1.5px solid var(--line);font-weight:500;transition:all .2s;display:flex;justify-content:space-between}
+.ans button::after{content:"→";color:var(--ink-2);transition:transform .2s}
+.ans button:hover{border-color:var(--teal);background:var(--teal-2)}
+.ans button:hover::after{transform:translateX(4px);color:var(--teal)}
+.field{display:grid;gap:6px;margin-bottom:12px}
+.field label{font-size:14px;font-weight:600;color:var(--ink-2)}
+.field input{font:inherit;padding:13px 15px;border-radius:12px;border:1.5px solid var(--line);outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(47,125,122,.15)}
+.submit{width:100%;height:54px;border-radius:14px;background:var(--dark);color:#fff;font-weight:600;margin-top:6px;transition:background .2s}
+.submit:hover{background:var(--teal)}
+.result{text-align:center}
+.score{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;color:#fff;font-weight:700;font-size:15px;margin:6px 0 14px;animation:pop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(0)}}
+.result p{color:var(--ink-2);font-size:15px}
+.phone{margin:22px auto 0;max-width:300px;background:var(--dark);border-radius:28px;padding:14px;text-align:left}
+.phone__top{color:#B7C6CE;font-size:12px;text-align:center;margin-bottom:10px}
+.bubble{background:#2A3B47;color:#fff;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:13.5px;line-height:1.45;opacity:0;transform:translateY(8px);transition:all .5s}
+.bubble.on{opacity:1;transform:none}
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.pipe div{padding:10px 6px;border-radius:10px;background:var(--bg);font-size:12px;font-weight:600;color:var(--ink-2);text-align:center;transition:all .5s}
+.pipe div.on{background:var(--teal);color:#fff}
+.flow{background:var(--dark);color:#fff}
+.flow .head p{color:#B7C6CE}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.col{padding:26px;border-radius:18px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+.col .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.col h3{font-size:20px;display:flex;align-items:center;margin-bottom:10px}
+.col ul{list-style:none;display:grid;gap:8px;color:#C7D3D9;font-size:15px}
+.col li::before{content:"→ ";color:var(--gold)}
+footer{padding:34px 0;font-size:14px;color:var(--ink-2);text-align:center}
+@media (max-width:900px){.listings,.cols{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.listings,.cols{grid-template-columns:1fr}.pipe{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="demo-bar"><a href="index.html#work">&larr; Back to portfolio</a><span class="demo-note"><b>Sample build</b> &middot; fictional agency, real funnel setup by Raf Inocentes</span></div>
+<div class="hero">
+  <div class="wrap">
+    <header><span class="logo"><i>K</i>Keystone Homes</span></header>
+    <div class="hero__in reveal">
+      <span class="kick">Homes for sale</span>
+      <h1>Find a home that fits your family and your budget.</h1>
+      <p>Answer 3 quick questions and get a shortlist of homes that match, plus a free call with a local agent.</p>
+      <a href="#match" class="btn">Get my home matches &rarr;</a>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="listings" id="listings"></div>
+</div>
+
+<section id="match">
+  <div class="wrap">
+    <div class="head reveal"><h2>Get matched in 30 seconds</h2><p>No spam. A real agent follows up only if you want.</p></div>
+    <div class="quiz reveal">
+      <div class="bar"><i id="barI"></i></div>
+      <div class="q on" data-q="0"><h3>What's your budget?</h3><div class="ans" data-k="budget"><button data-v="3">Above $600k</button><button data-v="2">$350k to $600k</button><button data-v="1">Under $350k</button></div></div>
+      <div class="q" data-q="1"><h3>When do you want to move?</h3><div class="ans" data-k="time"><button data-v="3">Within 3 months</button><button data-v="2">3 to 6 months</button><button data-v="1">Just looking for now</button></div></div>
+      <div class="q" data-q="2"><h3>Are you pre-approved for a mortgage?</h3><div class="ans" data-k="loan"><button data-v="3">Yes, I'm pre-approved</button><button data-v="2">Not yet, but I'm working on it</button><button data-v="1">No, I'd like help with this</button></div></div>
+      <div class="q" data-q="3"><h3>Where should we send your matches?</h3>
+        <div class="field"><label for="nm">First name</label><input id="nm" autocomplete="given-name"></div>
+        <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
+        <button class="submit" id="send">Show my matches</button>
+      </div>
+      <div class="q result" data-q="4">
+        <h3>Thanks, <span id="who"></span>!</h3>
+        <div class="score" id="score"></div>
+        <p id="why"></p>
+        <div class="phone"><div class="phone__top">Text message, a few seconds later</div><div class="bubble" id="bub"></div></div>
+        <div class="pipe"><div>New lead</div><div>Qualified</div><div>Call booked</div><div>Viewing</div></div>
+        <p style="margin-top:14px;font-size:13px">Demo only. Nothing was sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="head reveal"><h2>How the follow-up works</h2><p>Every lead is scored automatically in GoHighLevel and gets the right follow-up.</p></div>
+    <div class="cols">
+      <div class="col reveal"><h3><span class="dot" style="background:var(--hot)"></span>Hot lead</h3><ul><li>Instant SMS from the agent</li><li>Agent gets a call task right away</li><li>Booking link for a viewing</li></ul></div>
+      <div class="col reveal"><h3><span class="dot" style="background:var(--warm)"></span>Warm lead</h3><ul><li>Email with matching listings</li><li>SMS check-in after 2 days</li><li>Weekly new-listing updates</li></ul></div>
+      <div class="col reveal"><h3><span class="dot" style="background:var(--cold)"></span>Cold lead</h3><ul><li>Monthly market newsletter</li><li>Mortgage pre-approval guide</li><li>Re-scored when they open emails</li></ul></div>
+    </div>
+  </div>
+</section>
+<footer>Sample build by <a href="index.html" style="color:var(--teal);font-weight:600">Raf Inocentes</a>. Keystone Homes and the listings are fictional, used to show the setup.</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const homes=[['$485,000','Modern 3-bed family home','3 bd','2 ba','1,850 sqft','New','#7FA3B2','#DCE7EA'],['$629,000','Corner lot with backyard','4 bd','3 ba','2,400 sqft','Open house','#9C8E74','#EFE8DB'],['$342,000','Bright townhouse near schools','2 bd','2 ba','1,240 sqft','Price drop','#6E8F7D','#E1ECE4']];
+$('#listings').innerHTML=homes.map(h=>`<article class="home reveal"><div class="home__img"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" fill="${h[7]}"/><rect y="150" width="320" height="50" fill="#9DB89A"/><polygon points="60,90 160,30 260,90" fill="${h[6]}"/><rect x="80" y="90" width="160" height="70" fill="#fff"/><rect x="100" y="105" width="30" height="24" fill="${h[7]}"/><rect x="190" y="105" width="30" height="24" fill="${h[7]}"/><rect x="146" y="118" width="28" height="42" fill="${h[6]}"/></svg><span class="home__tag">${h[5]}</span></div><div class="home__b"><div class="home__p">${h[0]}</div><p>${h[1]}</p><div class="home__meta"><span>${h[2]}</span><span>${h[3]}</span><span>${h[4]}</span></div><button onclick="document.getElementById('match').scrollIntoView({behavior:'smooth'})">Ask about this home</button></div></article>`).join('');
+let step=0,ans={};
+const show=n=>{step=n;$$('.q').forEach(q=>q.classList.toggle('on',+q.dataset.q===n));$('#barI').style.width=Math.min(n,4)/4*100+'%'};
+$$('.ans button').forEach(b=>b.onclick=()=>{ans[b.parentElement.dataset.k]=+b.dataset.v;show(step+1)});
+$('#send').onclick=()=>{
+  const n=$('#nm').value.trim(),e=$('#em').value.trim();
+  if(!n){$('#nm').focus();return} if(!/^\S+@\S+\.\S+$/.test(e)){$('#em').focus();return}
+  const total=ans.budget+ans.time+ans.loan, tier=total>=8?['Hot lead','var(--hot)','Ready to buy soon. The agent gets an instant call task.',3]:total>=6?['Warm lead','var(--warm)','Interested and getting close. Matching listings go out by email.',2]:['Cold lead','var(--cold)','Still exploring. They get helpful guides and a monthly update.',1];
+  $('#who').textContent=n;const sc=$('#score');sc.textContent=tier[0];sc.style.background=tier[1];$('#why').textContent=tier[2];
+  $('#bub').textContent=`Hi ${n}, it's Sam from Keystone Homes! I saw you're looking at homes. I picked 3 that fit what you told me. Do you have 10 minutes for a quick call today?`;
+  show(4);setTimeout(()=>$('#bub').classList.add('on'),700);
+  $$('.pipe div').forEach((d,i)=>{if(i<tier[3])setTimeout(()=>d.classList.add('on'),1200+i*600)});
+};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+</script>
+</body>
+</html>
