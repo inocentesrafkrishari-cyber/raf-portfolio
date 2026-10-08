@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raf Inocentes | GoHighLevel, Web Development &amp; Claude Specialist</title>
-<meta name="description" content="Raf Inocentes builds websites, GoHighLevel funnels and Claude-powered AI follow-up that turn visitors into booked clients. Based in the Philippines, working with businesses worldwide.">
+<meta name="description" content="Raf Inocentes builds websites, GoHighLevel funnels and Claude-powered AI follow-up that turn visitors into booked clients, and brings 3+ years of email, chat and phone customer support for US companies. Based in the Philippines.">
 <meta property="og:title" content="Raf Inocentes | GoHighLevel, Web Development & Claude Specialist">
 <meta property="og:description" content="Websites, GoHighLevel funnels and AI follow-up that turn visitors into booked clients.">
 <meta property="og:image" content="raf.jpg">
@@ -79,10 +79,10 @@ h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
 /* Hero */
 .hero{padding:clamp(130px,16vw,170px) 0 clamp(70px,9vw,110px);position:relative;overflow:hidden}
 .blobs{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
-.blob--1{width:520px;height:520px;background:#F3D4C2;top:-140px;right:-120px;animation:float1 18s ease-in-out infinite}
-.blob--2{width:420px;height:420px;background:#E9E1CF;bottom:-160px;left:-120px;animation:float2 22s ease-in-out infinite}
-.blob--3{width:280px;height:280px;background:#DCEBDD;top:40%;left:45%;opacity:.35;animation:float1 26s ease-in-out infinite reverse}
+.blob{position:absolute;border-radius:50%;opacity:.7;will-change:transform}
+.blob--1{width:520px;height:520px;background:radial-gradient(closest-side,#F3D4C2,rgba(243,212,194,0));top:-140px;right:-120px;animation:float1 18s ease-in-out infinite}
+.blob--2{width:420px;height:420px;background:radial-gradient(closest-side,#E9E1CF,rgba(233,225,207,0));bottom:-160px;left:-120px;animation:float2 22s ease-in-out infinite}
+.blob--3{width:280px;height:280px;background:radial-gradient(closest-side,#DCEBDD,rgba(220,235,221,0));top:40%;left:45%;opacity:.35;animation:float1 26s ease-in-out infinite reverse}
 [data-theme="dark"] .blob{opacity:.16}
 @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,30px) scale(1.06)}}
 @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-30px)}}
@@ -157,7 +157,7 @@ h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
 .proj.is-hidden{display:none}
 .proj__view{aspect-ratio:16/10;background:var(--bg-2);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .proj__view .mock{position:absolute;inset:22px 22px 0;border-radius:12px 12px 0 0;background:var(--surface);box-shadow:0 10px 30px rgba(0,0,0,.10);overflow:hidden;transition:transform .7s var(--ease)}
-.proj:hover .mock{transform:translateY(-8px) scale(1.015)}
+.proj:hover .mock{transform:translateY(-8px) scale(1.015);transition:transform .25s var(--ease)}
 .proj__body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
 .proj__top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .tag{font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
@@ -209,8 +209,63 @@ h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
 .m-lp .ln{height:5px;border-radius:3px;background:#EADBCB;margin:8px auto 0;width:60%}
 .m-lp .bt{width:110px;height:20px;border-radius:999px;background:#B4461F;margin:12px auto 0}
 
+
+/* Hero support link */
+.hire-cs{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;border-bottom:1px dashed var(--line-2);padding-bottom:2px;transition:color .25s,border-color .25s}
+.hire-cs:hover{color:var(--accent);border-color:var(--accent)}
+.hire-cs .arrow{transition:transform .3s var(--ease)}
+.hire-cs:hover .arrow{transform:translateX(4px)}
+.hire-cs .dot{background:var(--accent)}
+.hire-cs .dot::after{border-color:var(--accent)}
+
+/* Mock: email + workflow */
+.m-mail{height:calc(100% - 22px);display:grid;grid-template-columns:38% 1fr;background:#fff}
+.m-mail .l{background:#F4F1EC;padding:10px 8px;display:grid;gap:6px;align-content:start}
+.m-mail .l span{height:22px;border-radius:6px;background:#fff;border:1px solid #E6DFD5;display:flex;align-items:center;padding:0 6px;font-size:8.5px;font-weight:600;color:#5B544C;white-space:nowrap;overflow:hidden}
+.m-mail .l span.on{background:#E7EEE5;border-color:#B9CBB6;color:#3E5541}
+.m-mail .r{padding:0}
+.m-mail .hd{background:#5F7A61;color:#fff;font:600 13px/1 Georgia,serif;padding:10px 12px}
+.m-mail .im{height:34%;background:linear-gradient(120deg,#C9D6C4,#EADFCF)}
+.m-mail .ln{height:5px;border-radius:3px;background:#E6DFD5;margin:8px 12px 0}
+.m-mail .bt{width:70px;height:14px;border-radius:999px;background:#5F7A61;margin:10px 12px 0}
+.m-wf{height:calc(100% - 22px);background:#fff radial-gradient(circle,#E6DFD5 1px,transparent 1.2px) 0 0/14px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:8px}
+.m-wf .n{font-size:11px;font-weight:600;color:#4F4943;background:#fff;border:1px solid #E6DFD5;border-radius:7px;padding:5px 14px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.m-wf .n.t{border-color:#E9B9A5;background:#F6E6DC;color:#8E3415}
+.m-wf .n.g{border-color:#BFE1CC;background:#E3F2E8;color:#2E8A57}
+.m-wf i{width:1.5px;height:12px;background:#D8CFC3}
+
+/* Support section */
+.support{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
+.support>*{min-width:0}
+.chan{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 22px}
+.chan div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;transition:transform .35s var(--ease),border-color .3s}
+.chan div:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.chan svg{width:22px;height:22px;color:var(--accent)}
+.chan b{display:block;font-family:var(--f-display);font-size:16px;margin-top:8px}
+.chan span{font-size:14px;color:var(--ink-2);line-height:1.5;display:block;margin-top:2px}
+.cs-list{list-style:none;display:grid;gap:10px;margin-bottom:28px}
+.cs-list li{display:flex;gap:12px;color:var(--ink-2);font-size:16px}
+.cs-list li::before{content:"✓";color:var(--ok);font-weight:700}
+.cs-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.inbox{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden}
+.inbox__hd{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+.inbox__hd small{font-weight:500;color:var(--muted);font-size:13px}
+.tk{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);transition:background .4s}
+.tk:last-child{border-bottom:0}
+.tk.is-act{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.tk__ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--bg-2);color:var(--ink-2)}
+.tk__ic svg{width:17px;height:17px}
+.tk b{display:block;font-size:15px;line-height:1.3}
+.tk small{font-size:13px;color:var(--muted)}
+.st{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);transition:all .35s var(--ease);white-space:nowrap}
+.st.ok{background:var(--ok-soft);color:var(--ok)}
+.inbox__ft{padding:12px 20px;font-size:13px;color:var(--muted);background:var(--bg-2)}
+@media (max-width:1020px){.support{grid-template-columns:1fr}}
+@media (max-width:600px){.chan{grid-template-columns:1fr}}
+
 /* Services */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc{padding:28px 24px!important}
 .svc{padding:30px 28px}
 .svc__ic{width:48px;height:48px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:20px;transition:transform .5s var(--ease)}
 .svc:hover .svc__ic{transform:rotate(-8deg) scale(1.08)}
@@ -228,7 +283,7 @@ h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
 .offer li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:color-mix(in srgb,var(--bg) 88%,transparent)}
 .offer li svg{width:20px;height:20px;color:#7FD3A1;flex:none;margin-top:3px}
 .offer .btn--primary{margin-top:26px}
-.offer__glow{position:absolute;width:420px;height:420px;border-radius:50%;background:var(--accent);filter:blur(120px);opacity:.35;right:-120px;top:-160px;pointer-events:none}
+.offer__glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,var(--accent),transparent);opacity:.35;right:-120px;top:-160px;pointer-events:none}
 
 /* Process */
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
@@ -320,18 +375,20 @@ h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
 .rv.is-in{opacity:1;transform:none}
 
 /* Cursor */
-.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;opacity:0;transition:opacity .3s}
-.cur-dot{width:8px;height:8px;background:var(--accent);margin:-4px 0 0 -4px}
-.cur-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid color-mix(in srgb,var(--ink) 45%,transparent);display:grid;place-items:center;transition:opacity .3s,width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-color .35s}
-.cur-ring span{font-size:12px;font-weight:600;color:#fff;opacity:0;transition:opacity .2s;font-family:var(--f-body)}
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .2s;will-change:transform;contain:layout style}
+.cur-dot{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--accent)}
+.cur-ring{width:40px;height:40px;margin:-20px 0 0 -20px;display:grid;place-items:center}
+.cur-ring b{position:absolute;inset:0;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--ink) 45%,transparent);transition:transform .25s var(--ease),background .25s,border-color .25s}
+.cur-ring span{position:relative;font-size:12px;font-weight:600;color:#fff;opacity:0;transform:scale(.6);transition:opacity .2s,transform .25s var(--ease);font-family:var(--f-body)}
 .has-cursor .cur-dot,.has-cursor .cur-ring{opacity:1}
 .has-cursor,.has-cursor a,.has-cursor button,.has-cursor label{cursor:none}
 .has-cursor input,.has-cursor textarea,.has-cursor select{cursor:text}
-.cur-ring.is-hover{width:58px;height:58px;margin:-29px 0 0 -29px;border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
-.cur-ring.is-view{width:84px;height:84px;margin:-42px 0 0 -42px;background:var(--accent);border-color:var(--accent)}
-.cur-ring.is-view span{opacity:1}
-.cur-ring.is-text{width:4px;height:28px;margin:-14px 0 0 -2px;border-radius:2px;border-color:var(--accent);background:var(--accent)}
-.cur-dot.is-hide{opacity:0!important}
+.cur-ring.is-hover b{transform:scale(1.45);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.cur-ring.is-view b{transform:scale(2.1);background:var(--accent);border-color:var(--accent)}
+.cur-ring.is-view span{opacity:1;transform:none}
+.cur-ring.is-down b{transform:scale(.8)}
+.cur-ring.is-hover.is-down b{transform:scale(1.25)}
+.has-cursor .cur-ring.is-text,.cur-dot.is-hide{opacity:0!important}
 .cursor-off .cur-dot,.cursor-off .cur-ring{opacity:0!important}
 
 /* Toast */
@@ -427,7 +484,7 @@ h2.rv{opacity:1;transform:none}
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
-<div class="cur-ring" aria-hidden="true"><span>View</span></div>
+<div class="cur-ring" aria-hidden="true"><b></b><span>View</span></div>
 <div class="cur-dot" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
@@ -435,6 +492,7 @@ h2.rv{opacity:1;transform:none}
     <a href="#top" class="brand" aria-label="Raf Inocentes, home"><span class="brand__mark">RI</span>Raf Inocentes</a>
     <nav class="nav__links" id="navLinks" aria-label="Main">
       <a class="lnk" href="#work">Work</a>
+      <a class="lnk" href="#support">Support</a>
       <a class="lnk" href="#services">Services</a>
       <a class="lnk" href="#process">Process</a>
       <a class="lnk" href="#about">About</a>
@@ -471,6 +529,7 @@ h2.rv{opacity:1;transform:none}
         <a href="#contact" class="btn btn--primary magnet">Book a free call <span class="arrow">&rarr;</span></a>
         <a href="#work" class="btn btn--ghost magnet">See my work</a>
       </div>
+      <a class="hire-cs rv" style="--d:5" href="#support"><span class="dot"></span>Hiring for customer support? I also do chat, calls and email <span class="arrow">&rarr;</span></a>
       <div class="trust rv" style="--d:5">
         <span><b>3+ years</b> supporting US customers</span><span class="sep"></span>
         <span>Credit One Bank</span><span class="sep"></span><span>Uber</span><span class="sep"></span><span>Replies within 24h</span>
@@ -598,8 +657,65 @@ h2.rv{opacity:1;transform:none}
           <span class="proj__link">Open live page <span class="arrow">&#8599;</span></span>
         </div>
       </a>
+
+      <a class="card proj rv" data-c="funnel" href="email-sequence.html" data-cursor="view">
+        <div class="proj__view"><div class="mock"><div class="m-bar"><i></i><i></i><i></i></div><div class="m-mail"><div class="l"><span class="on">Day 0 · Your free class</span><span>Day 1 · What to expect</span><span>Day 3 · Start sooner</span><span>Day 5 · Quick question</span><span>Day 7 · Last call</span></div><div class="r"><div class="hd">Bloom</div><div class="im"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div class="bt"></div></div></div></div></div>
+        <div class="proj__body">
+          <div class="proj__top"><span class="tag tag--sample">Sample build</span><span class="tag">Email marketing</span></div>
+          <h3>5-Email Welcome Sequence</h3>
+          <p>A welcome sequence for a pilates studio that turns a free class pass into a booked class, written and set up in GoHighLevel.</p>
+          <ul><li>Each email has one job: welcome, reassure, build trust, ask, remind</li><li>Stops on its own once the contact books</li></ul>
+          <div class="tools"><span>GoHighLevel</span><span>Email</span><span>Copywriting</span><span>Workflows</span></div>
+          <span class="proj__link">Read the emails <span class="arrow">&#8599;</span></span>
+        </div>
+      </a>
+
+      <a class="card proj rv" style="--d:1" data-c="ai funnel" href="workflow-map.html" data-cursor="view">
+        <div class="proj__view"><div class="mock"><div class="m-bar"><i></i><i></i><i></i></div><div class="m-wf"><span class="n t">Missed call</span><i></i><span class="n">Text back in seconds</span><i></i><span class="n">Send booking link</span><i></i><span class="n">Booked?</span><i></i><span class="n g">Ask for a review</span></div></div></div>
+        <div class="proj__body">
+          <div class="proj__top"><span class="tag tag--sample">Sample build</span><span class="tag">Automation</span></div>
+          <h3>Missed-Call Text Back Workflow</h3>
+          <p>A GoHighLevel workflow for a repair shop: every missed call gets a text, a booking link, a reminder and a review request after the job.</p>
+          <ul><li>Run a test contact and watch each step fire</li><li>If/else branch so no lead falls through the cracks</li></ul>
+          <div class="tools"><span>GoHighLevel</span><span>Workflows</span><span>SMS</span><span>Calendars</span></div>
+          <span class="proj__link">Run the demo <span class="arrow">&#8599;</span></span>
+        </div>
+      </a>
     </div>
     <p class="note rv">Sample builds use made-up business names so I can show the full setup. Real client work is shared on request.</p>
+  </div>
+</section>
+
+<section class="section" id="support">
+  <div class="container support">
+    <div>
+      <span class="eyebrow rv">Customer support</span>
+      <h2 class="rv" style="--d:1">Need support for your customers? I've done it for 3+ years.</h2>
+      <p class="lead rv" style="--d:2">Before I built funnels, I worked in customer support for US companies. At Credit One Bank I had the top CSAT on my team, became an SME and helped train new hires. At Uber I supported drivers by email, chat and phone.</p>
+      <div class="chan rv" style="--d:2">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><b>Email</b><span>Clear, kind replies that solve it the first time</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><b>Live chat</b><span>Fast replies, quick fixes and a clean recap</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><b>Calls</b><span>Calm, patient and good with upset callers</span></div>
+      </div>
+      <ul class="cs-list rv" style="--d:3">
+        <li>Billing, payment and account issues</li>
+        <li>Calming upset customers and handling escalations</li>
+        <li>Following security steps and company policy every time</li>
+        <li>Clean ticket notes so the next person never has to ask again</li>
+        <li>US, UK or AU hours, including night shift</li>
+      </ul>
+      <div class="cs-ctas rv" style="--d:4">
+        <a href="support-samples.html" class="btn btn--primary magnet" data-cursor="view">See my support samples <span class="arrow">&rarr;</span></a>
+        <a href="Raf-Inocentes-CV.pdf" class="btn btn--ghost magnet" target="_blank" rel="noopener">View CV</a>
+      </div>
+    </div>
+    <div class="inbox rv" style="--d:2" aria-hidden="true">
+      <div class="inbox__hd">Support inbox <small id="tkCount">3 open</small></div>
+      <div class="tk"><span class="tk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><span><b>Where is my order?</b><small>Email · Upset customer</small></span><span class="st">Open</span></div>
+      <div class="tk"><span class="tk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Can't log in before delivery</b><small>Live chat · Urgent</small></span><span class="st">Open</span></div>
+      <div class="tk"><span class="tk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>Charge I don't recognise</b><small>Call · Billing</small></span><span class="st">Open</span></div>
+      <div class="inbox__ft">Sample inbox · see the full replies in my support samples</div>
+    </div>
   </div>
 </section>
 
@@ -617,6 +733,8 @@ h2.rv{opacity:1;transform:none}
       <div class="card svc rv"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><h3>Email Marketing</h3><p>Welcome sequences, newsletters and nurture emails that bring people back.</p><ul><li>Automated sequences</li><li>Campaigns</li><li>Simple reporting</li></ul></div>
       <div class="card svc rv" style="--d:1"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>SMS Marketing</h3><p>Instant replies, reminders and two-way texting that people actually read.</p><ul><li>Missed-call text back</li><li>Appointment reminders</li><li>Broadcasts</li></ul></div>
       <div class="card svc rv" style="--d:2"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Payments &amp; Checkout</h3><p>Order forms, payment links, invoices and upsells set up inside GoHighLevel.</p><ul><li>Stripe and PayPal</li><li>Order bumps and upsells</li><li>Auto receipts</li></ul></div>
+      <div class="card svc rv"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Customer Support</h3><p>Email, live chat and phone support for your customers, in your hours.</p><ul><li>Tickets and live chat</li><li>Inbound calls</li><li>Escalations and notes</li></ul></div>
+      <div class="card svc rv" style="--d:1"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Admin &amp; Inbox</h3><p>Inbox, calendar and CRM upkeep so nothing slips while you work.</p><ul><li>Email and calendar</li><li>CRM clean-up</li><li>Google Workspace</li></ul></div>
     </div>
   </div>
 </section>
@@ -668,8 +786,8 @@ h2.rv{opacity:1;transform:none}
     <div class="timeline">
       <div class="titem rv"><span class="d">2025 to now</span><h3>Co-Founder, Web Developer &amp; GoHighLevel Specialist</h3><span class="c">Funnel &amp; AI Automation Team &middot; Remote</span><p>Started a small team with 2 partners. I build websites, GHL funnels, email and SMS campaigns and AI automations for clients.</p></div>
       <div class="titem rv" style="--d:1"><span class="d">Freelance</span><h3>Social Media Manager &amp; Video Editor</h3><span class="c">Content creator client</span><p>Managed content across YouTube, TikTok, Facebook and Instagram, and edited videos in DaVinci Resolve.</p></div>
-      <div class="titem rv" style="--d:2"><span class="d">2023 to 2024</span><h3>Customer Experience Specialist</h3><span class="c">Uber &middot; US and Canada</span><p>Supported drivers by email, chat and phone with account, payment and app issues.</p></div>
-      <div class="titem rv" style="--d:3"><span class="d">2021 to 2023</span><h3>Support Specialist, SME &amp; Assistant Team Leader</h3><span class="c">Credit One Bank &middot; US</span><p>Top CSAT on the team, promoted to SME, then helped train new hires and run daily operations.</p></div>
+      <div class="titem rv" style="--d:2"><span class="d">2023 to 2024</span><h3>Customer Experience Specialist</h3><span class="c">Uber &middot; US and Canada</span><p>Supported drivers by email, chat and phone with account, payment, trip and app issues, and escalated complex cases to the right team.</p></div>
+      <div class="titem rv" style="--d:3"><span class="d">2021 to 2023</span><h3>Support Specialist, SME &amp; Assistant Team Leader</h3><span class="c">Credit One Bank &middot; US</span><p>Supported US banking customers with the top CSAT on the team. Promoted to SME for escalations, then helped train new hires, monitor queues and run daily operations.</p></div>
     </div>
   </div>
 </section>
@@ -722,6 +840,7 @@ h2.rv{opacity:1;transform:none}
       <div class="qa rv"><button aria-expanded="false">How long does a funnel take?<span class="pm">+</span></button><div class="ans"><div><p>A simple landing page with follow-up usually takes 2 to 4 days. A full funnel with email, SMS and a calendar usually takes 1 to 2 weeks, depending on how many pages and automations you need.</p></div></div></div>
       <div class="qa rv"><button aria-expanded="false">What do you need from me to start?<span class="pm">+</span></button><div class="ans"><div><p>Your offer, your logo and brand colors if you have them, any photos you want to use, and access to the tools we'll connect. I'll send a short checklist so nothing is missed.</p></div></div></div>
       <div class="qa rv"><button aria-expanded="false">Do you offer revisions?<span class="pm">+</span></button><div class="ans"><div><p>Yes. Revisions are included until the pages and automations work the way you want. I'd rather get it right than rush it.</p></div></div></div>
+      <div class="qa rv"><button aria-expanded="false">Are you open to customer support roles too?<span class="pm">+</span></button><div class="ans"><div><p>Yes. I have 3+ years of email, chat and phone support for US companies, and I'm happy to join a support team full time or part time. You can read how I handle tickets in my <a href="support-samples.html" style="color:var(--accent);font-weight:600">support samples</a>.</p></div></div></div>
       <div class="qa rv"><button aria-expanded="false">How do we communicate?<span class="pm">+</span></button><div class="ans"><div><p>Whatever works best for you: email, Slack, WhatsApp or video calls. I reply within 24 hours and send updates as I build.</p></div></div></div>
     </div>
   </div>
@@ -926,11 +1045,13 @@ h2.rv{opacity:1;transform:none}
     const n = Math.min(70, Math.round(W * H / 22000));
     pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: Math.random() * 1.8 + 1 }));
   };
-  const accent = () => getComputedStyle(root).getPropertyValue('--accent').trim() || '#B4461F';
+  let AC = '#B4461F';
+  const readAccent = () => { AC = getComputedStyle(root).getPropertyValue('--accent').trim() || '#B4461F'; };
+  readAccent(); new MutationObserver(readAccent).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   const hexA = (hex, a) => { const h = hex.replace('#', ''); const n = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
   const draw = () => {
     if (visible) {
-      const ac = accent(); cx.clearRect(0, 0, W, H);
+      const ac = AC; cx.clearRect(0, 0, W, H);
       for (const p of pts) {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
@@ -952,35 +1073,56 @@ h2.rv{opacity:1;transform:none}
 
   if (!FINE) return;
 
-  /* Custom cursor */
+  /* Custom cursor: dot is drawn on every raw pointer event (no lag), ring follows with a short, frame-rate independent ease */
   const dot = $('.cur-dot'), ring = $('.cur-ring');
-  let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, shown = false;
+  let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, shown = false, last = performance.now();
   root.classList.add('has-cursor');
-  addEventListener('pointermove', e => {
+  const onMove = e => {
     mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx}px,${my}px)`;
+    dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
     if (!shown) { shown = true; rx = mx; ry = my; root.classList.remove('cursor-off'); }
-  }, { passive: true });
+  };
+  addEventListener('onpointerrawupdate' in window ? 'pointerrawupdate' : 'pointermove', onMove, { passive: true });
   document.addEventListener('pointerleave', () => { root.classList.add('cursor-off'); shown = false; });
-  const loop = () => {
-    rx += (mx - rx) * (RM ? 1 : .18); ry += (my - ry) * (RM ? 1 : .18);
-    ring.style.transform = `translate(${rx}px,${ry}px)`;
+  const loop = now => {
+    const dt = Math.min(64, now - last); last = now;
+    const k = 1 - Math.pow(1 - .38, dt / 16.7);
+    rx += (mx - rx) * k; ry += (my - ry) * k;
+    if (Math.abs(mx - rx) < .1) rx = mx; if (Math.abs(my - ry) < .1) ry = my;
+    ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
     requestAnimationFrame(loop);
   };
-  loop();
+  requestAnimationFrame(loop);
   document.addEventListener('pointerover', e => {
     const t = e.target;
     const view = t.closest('[data-cursor=view]');
     const txt = t.closest('input,textarea,select');
-    const hov = t.closest('a,button,label,.filter');
+    const hov = t.closest('a,button,label,.filter,.tab,[role=tab]');
     ring.classList.toggle('is-view', !!view);
     ring.classList.toggle('is-text', !!txt && !view);
     ring.classList.toggle('is-hover', !!hov && !view && !txt);
     dot.classList.toggle('is-hide', !!view || !!txt);
   });
-  addEventListener('pointerdown', () => ring.style.scale = '.85');
-  addEventListener('pointerup', () => ring.style.scale = '1');
+  addEventListener('pointerdown', () => ring.classList.add('is-down'));
+  addEventListener('pointerup', () => ring.classList.remove('is-down'));
 
+
+  /* Support inbox: tickets get solved one by one, then reset */
+  (() => {
+    const tks = $$('.tk'), cnt = $('#tkCount'); if (!tks.length) return;
+    let i = 0, timer;
+    const step = () => {
+      if (i < tks.length) {
+        tks.forEach(t => t.classList.remove('is-act')); tks[i].classList.add('is-act');
+        const st = $('.st', tks[i]);
+        setTimeout(() => { st.textContent = 'Solved'; st.classList.add('ok'); tks[i - 1] && tks[i - 1].classList.remove('is-act'); cnt.textContent = (tks.length - i) + ' open'; }, 900);
+        i++; timer = setTimeout(step, 1900);
+      } else {
+        setTimeout(() => { tks.forEach(t => { t.classList.remove('is-act'); const st = $('.st', t); st.textContent = 'Open'; st.classList.remove('ok'); }); cnt.textContent = tks.length + ' open'; i = 0; timer = setTimeout(step, 1200); }, 2600);
+      }
+    };
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); setTimeout(step, 700); } }, { threshold: .4 }).observe($('.inbox'));
+  })();
 
   /* Magnetic buttons */
   $$('.magnet').forEach(b => {

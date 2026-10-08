@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missed-Call Text Back Workflow | Demo (Sample Build)</title>
+<meta name="description" content="A GoHighLevel workflow that texts back missed calls, books the job and asks for a review. Sample build by Raf Inocentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--bg:#F7F4EF;--bg-2:#F0EBE3;--ink:#1D1A17;--ink-2:#4F4943;--muted:#7D766D;--line:#E6DFD5;--accent:#B4461F;--accent-2:#F6E6DC;--ok:#2E8A57;--ok-2:#E3F2E8;--blue:#2F6FB3;--blue-2:#E4EEF8;--vio:#6B4FB3;--vio-2:#EEE9F8;--ease:cubic-bezier(.22,.8,.24,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,5vw,40px)}
+h1,h2,h3{font-family:"Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15}
+.hero{padding:clamp(48px,8vw,84px) 0 30px;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.hero>div{max-width:680px}
+.kick{font-size:14px;font-weight:600;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(34px,4.8vw,52px);margin:14px 0 16px}
+.lead{color:var(--ink-2);font-size:19px}
+.run{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600;box-shadow:0 12px 30px rgba(180,70,31,.25);transition:transform .25s var(--ease),opacity .25s}
+.run:hover{transform:translateY(-2px)}
+.run[disabled]{opacity:.6;cursor:wait}
+.run svg{width:18px;height:18px}
+.board{display:grid;grid-template-columns:1fr 380px;gap:26px;align-items:start;padding-bottom:70px}
+.board>*{min-width:0}
+.canvas{background:#fff radial-gradient(circle,#E6DFD5 1.2px,transparent 1.3px) 0 0/22px 22px;border:1px solid var(--line);border-radius:22px;padding:30px 20px;display:flex;flex-direction:column;align-items:center}
+.n{width:min(100%,380px);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;position:relative;transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
+.n i{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:17px}
+.n b{display:block;font-size:15px;line-height:1.3}
+.n small{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+.n.trig i{background:var(--accent-2)}.n.sms i{background:var(--blue-2)}.n.wait i{background:var(--bg-2)}.n.if i{background:var(--vio-2)}.n.ok i{background:var(--ok-2)}
+.n.trig{border-color:#E9B9A5}
+.n.act{border-color:var(--accent);box-shadow:0 0 0 5px rgba(180,70,31,.12);transform:scale(1.02)}
+.n.done{border-color:var(--ok)}
+.n.done::after{content:"\2713";position:absolute;right:-10px;top:-10px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700;animation:pop .3s var(--ease)}
+@keyframes pop{from{transform:scale(0)}}
+.ln{width:2px;height:26px;background:var(--line);position:relative;overflow:hidden}
+.ln.go::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--accent);animation:flow .45s var(--ease) forwards}
+@keyframes flow{to{top:0}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:min(100%,560px);margin-top:0}
+.split .col{display:flex;flex-direction:column;align-items:center}
+.split .lab{font:600 12px/1 "JetBrains Mono",monospace;padding:5px 10px;border-radius:999px;margin:0 0 8px;background:var(--ok-2);color:var(--ok)}
+.split .lab.no{background:var(--bg-2);color:var(--muted)}
+.split .n{width:100%}
+.side{display:grid;gap:16px;position:sticky;top:70px}
+.phone{background:#1D1A17;border-radius:34px;padding:12px;box-shadow:0 24px 60px rgba(29,26,23,.18)}
+.screen{background:#fff;border-radius:24px;height:390px;display:flex;flex-direction:column;overflow:hidden}
+.sh{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px;text-align:center;line-height:1.3}
+.sh b{display:block}
+.sh small{color:var(--muted);font-size:12px}
+.thread{flex:1;padding:14px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;scroll-behavior:smooth}
+.b{max-width:82%;padding:8px 12px;border-radius:16px;font-size:14px;line-height:1.45;animation:pin .35s var(--ease)}
+.b.in{background:var(--bg-2);align-self:flex-start;border-bottom-left-radius:5px}
+.b.out{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:5px}
+.b.sys{align-self:center;background:none;color:var(--muted);font-size:12px;padding:0}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.log{background:#1D1A17;color:#E8E1D8;border-radius:18px;padding:16px 18px;font:500 12.5px/1.7 "JetBrains Mono",monospace;height:200px;overflow-y:auto}
+.log div{animation:pin .3s var(--ease)}
+.log .k{color:#F0A27F}
+.log .g{color:#7FD3A2}
+.empty{color:#958D82}
+@media (max-width:960px){.board{grid-template-columns:1fr}.side{position:static}}
+@media (max-width:520px){.split{grid-template-columns:1fr}.split .col:last-child{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar"><a href="index.html">&larr; Back to portfolio</a><span class="demo-note"><b>Sample build</b> &middot; Coastline Auto Repair is a made-up business</span></div>
+
+<header class="wrap hero">
+  <div>
+    <span class="kick">GoHighLevel workflow</span>
+    <h1>Missed call? The customer gets a text in seconds.</h1>
+    <p class="lead">For a busy repair shop that can't always pick up the phone. When a call is missed, the workflow texts back, books the job, sends a reminder, and asks for a Google review after the visit.</p>
+  </div>
+  <button class="run" id="run"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>Run a test contact</button>
+</header>
+
+<main class="wrap board">
+  <div class="canvas" id="cv">
+    <div class="n trig" data-s="0"><i>&#128222;</i><div><b>Trigger: Call status is missed</b><small>Any number calling the shop line</small></div></div>
+    <div class="ln"></div>
+    <div class="n sms" data-s="1"><i>&#128172;</i><div><b>Send SMS: text back</b><small>"Sorry we missed you! How can we help?"</small></div></div>
+    <div class="ln"></div>
+    <div class="n wait" data-s="2"><i>&#9203;</i><div><b>Wait for reply</b><small>Up to 30 minutes, then notify the team</small></div></div>
+    <div class="ln"></div>
+    <div class="n sms" data-s="3"><i>&#128197;</i><div><b>Send booking link</b><small>Calendar: Service appointment</small></div></div>
+    <div class="ln"></div>
+    <div class="n if" data-s="4"><i>&#10067;</i><div><b>If / else: appointment booked?</b><small>Checks the calendar for this contact</small></div></div>
+    <div class="ln"></div>
+    <div class="split">
+      <div class="col"><span class="lab">YES</span>
+        <div class="n sms" data-s="5"><i>&#128276;</i><div><b>Reminder 24h before</b><small>Address and what to bring</small></div></div>
+        <div class="ln"></div>
+        <div class="n wait" data-s="6"><i>&#128295;</i><div><b>Wait until job is done</b><small>Opportunity moves to Completed</small></div></div>
+        <div class="ln"></div>
+        <div class="n ok" data-s="7"><i>&#11088;</i><div><b>Ask for a review</b><small>Google review link, 2 hours later</small></div></div>
+      </div>
+      <div class="col"><span class="lab no">NO</span>
+        <div class="n wait"><i>&#128100;</i><div><b>Task for front desk</b><small>Call back within 1 hour</small></div></div>
+        <div class="ln"></div>
+        <div class="n sms"><i>&#128172;</i><div><b>Follow-up text next day</b><small>"Still need help with your car?"</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="phone"><div class="screen"><div class="sh"><b>Coastline Auto Repair</b><small>Customer's phone</small></div><div class="thread" id="sms"><div class="b sys">Press "Run a test contact" to see it in action</div></div></div></div>
+    <div class="log" id="log"><div class="empty">// workflow log</div></div>
+  </aside>
+</main>
+
+<script>
+(() => {
+  const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const sms = $('#sms'), log = $('#log'), btn = $('#run');
+  const say = (cls, t) => { const d = document.createElement('div'); d.className = 'b ' + cls; d.textContent = t; sms.appendChild(d); sms.scrollTop = sms.scrollHeight; };
+  const L = (t, c = '') => { const d = document.createElement('div'); d.innerHTML = t; if (c) d.className = c; log.appendChild(d); log.scrollTop = log.scrollHeight; };
+  const node = i => $(`.n[data-s="${i}"]`);
+  const steps = [
+    [() => { say('sys', 'Missed call · 9:41 AM'); L('<span class="k">09:41:02</span> trigger · call missed from (555) 014-2290'); }, 900],
+    [() => { say('out', 'Hi! Sorry we missed your call at Coastline Auto. How can we help today?'); L('<span class="k">09:41:05</span> sms sent · text back <span class="g">delivered</span>'); }, 1300],
+    [() => { say('in', 'Hi, my brakes are squeaking. Can I bring my car in this week?'); L('<span class="k">09:43:18</span> reply received · tag added: brakes'); }, 1300],
+    [() => { say('out', 'Yes we can! Pick any open time here: coastline.example/book'); L('<span class="k">09:43:20</span> sms sent · booking link'); }, 1300],
+    [() => { say('sys', 'Booked: Thursday 10:00 AM'); L('<span class="k">09:46:51</span> if/else · appointment found → <span class="g">YES branch</span>'); }, 1300],
+    [() => { say('out', 'Reminder: your brake check is tomorrow at 10 AM, 88 Shore Rd. See you then!'); L('<span class="k">Wed 10:00</span> sms sent · 24h reminder'); }, 1300],
+    [() => { say('sys', 'Job marked completed'); L('<span class="k">Thu 11:25</span> opportunity → Completed'); }, 1100],
+    [() => { say('out', 'Thanks for choosing Coastline! Would you mind leaving us a quick review? It really helps a small shop.'); L('<span class="k">Thu 13:25</span> sms sent · review request <span class="g">done</span>'); }, 900]
+  ];
+  btn.addEventListener('click', async () => {
+    btn.disabled = true; sms.innerHTML = ''; log.innerHTML = '';
+    $$('.n').forEach(n => n.classList.remove('act', 'done')); $$('.ln').forEach(l => l.classList.remove('go'));
+    for (let i = 0; i < steps.length; i++) {
+      const n = node(i);
+      n.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      n.classList.add('act'); steps[i][0]();
+      await wait(steps[i][1]);
+      n.classList.remove('act'); n.classList.add('done');
+      const next = n.nextElementSibling;
+      if (next && next.classList.contains('ln')) next.classList.add('go');
+      else if (i === 4) $$('#cv > .ln').slice(-1)[0].classList.add('go');
+      await wait(250);
+    }
+    L('<span class="g">✓ test finished · 8 steps · 0 errors</span>');
+    btn.disabled = false;
+  });
+})();
+</script>
+</body>
+</html>
